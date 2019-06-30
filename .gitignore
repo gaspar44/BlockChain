@@ -4,3 +4,4 @@ gradlew*
 .project
 .gradle
 .settings
+gradle/

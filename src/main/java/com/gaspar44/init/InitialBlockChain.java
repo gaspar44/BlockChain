@@ -1,12 +1,13 @@
 package com.gaspar44.init;
 
+import java.io.FileOutputStream;
 import java.util.ArrayList;
 
 import com.google.gson.GsonBuilder;
 
 public class InitialBlockChain {
 	public static ArrayList<Block> blockChain = new ArrayList<Block>();
-	public static int difficulty = 5;
+	public static int difficulty = 1;
 	public static void main(String[] args) throws Exception {
 	
 		Block genesisBlock = new Block("holis", "0");
@@ -21,6 +22,9 @@ public class InitialBlockChain {
 		
 		String jsonBlockChain = new GsonBuilder().setPrettyPrinting().create().toJson(blockChain);
 		System.out.println(jsonBlockChain);
+		FileOutputStream os = new FileOutputStream("./blockChian.json");
+		os.write(jsonBlockChain.getBytes());
+		os.close();
 		
 	}
 	
